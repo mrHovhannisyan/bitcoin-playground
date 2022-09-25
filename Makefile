@@ -2,15 +2,15 @@
 
 .PHONY: createwallet
 createwallet: ## Create new wallet
-	docker exec --user bitcoin bitcoin-three-nodes-node3-1 bitcoin-cli -regtest createwallet "node3_wallet"
+	docker exec --user bitcoin bitcoin-playground-node3-1 bitcoin-cli -regtest createwallet "node3_wallet"
 
 .PHONY: getnewaddress
 getnewaddress: ## Get new address
-	docker exec --user bitcoin bitcoin-three-nodes-node3-1 bitcoin-cli getnewaddress
+	docker exec --user bitcoin bitcoin-playground-node3-1 bitcoin-cli getnewaddress
 
 .PHONY: getbalance
 getbalance: ## Get balance
-	docker exec --user bitcoin bitcoin-three-nodes-node3-1 bitcoin-cli getbalance
+	docker exec --user bitcoin bitcoin-playground-node3-1 bitcoin-cli getbalance
 
 .PHONY: help
 help:
