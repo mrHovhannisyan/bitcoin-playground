@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  node1:
+    image: ruimarinho/bitcoin-core:22.0-alpine
+    command:
+      -printtoconsole
+      -regtest=1
+      -addnode=node2
+      -addnode=node3
+  node2:
+    image: ruimarinho/bitcoin-core:22.0-alpine
+    command:
+      -printtoconsole
+      -regtest=1
+      -addnode=node1
+      -addnode=node3
+  node3:
+    build: ./client
+    command:
+      -printtoconsole
+      -regtest=1
+    ports:
+      - "18888:18443"
